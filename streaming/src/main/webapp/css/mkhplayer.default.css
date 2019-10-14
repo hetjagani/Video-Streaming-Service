@@ -1,0 +1,75 @@
+/**
+*	MKH Player css
+*
+**/
+
+.audioWrapper{
+	background:#09519f;
+	position: relative;
+	min-height: 36px;
+	border-radius: 5px;
+}
+.functionControl,.volumeControl,.main-content .functionControl, .main-content .volumeControl{
+	color:#fff;
+	text-decoration: none;
+	text-indent: -1000px;
+	display: block;
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-top: 7px;
+	margin-left: 10px;
+	background-image: url(controls.png);
+	background-size: 80px 20px;
+}
+
+.playState{
+	background-position: 0px 0px;
+}
+.pauseState{
+	background-position: -20px 0px;
+}
+.loudState{
+	background-position: -40px 0px;
+}
+.muteState{
+	background-position: -60px 0px;
+}
+.volumeWrapper{
+	float: right;
+	min-height: 7px;
+	min-width: 100px;
+	background:rgba(0,0,0,.3);
+	position: relative;
+	margin-top: 1px;
+	margin-right: 1px;
+}
+
+.currentTime,.durationTime{
+	float: left;
+	margin-top:10px;
+	font-size:11px;
+	margin-left: 10px;
+	color: #fff;
+}
+
+.progressWrapper{
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	min-height: 5px;
+	top:14px;
+	background:rgba(255,255,255,.4);
+	z-index: 10;
+	cursor: pointer;
+}
+
+.progressBar{
+	position: absolute;
+	min-height: 5px;
+	width:0%;
+	background:rgba(255,255,255,.8);
+	cursor: pointer;
+	z-index: 11;
+}
