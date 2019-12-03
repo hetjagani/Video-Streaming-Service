@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Streaming - Movie Detail</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+	<h1>{{ movie['name'] }}</h1>
+	
+	<div id="movie-detail">
+		<p>Genre: {{ movie['genre'] }}</p>
+		<p>Release Year: {{ movie['release_year'] }}</p>
+		<p>Rating: {{ movie['rating'] }} <i class="fa fa-star"></i></p>
+		<p>Description: {{ movie['description'] }}</p>
+		<p>Duration: {{ movie['duration'] }} <i class="far fa-clock"></i></p>
+		<button class="btn btn-success"><a href="http://10.20.24.51:9090/?path=movies/stream/{{ movie['id'] }}">Watch Now </a></button>
+	</div>
+	
+	<!-- <table id="table" style="width:100%">
+	  <tr>
+	    <th>Movie ID</th>
+	    <th>Name</th>
+	    <th>Genre</th>
+	    <th>Rating</th>
+	    <th>Release Year</th>
+	    <th colspan="1">Description</th>
+	  </tr>
+
+	  <tr>
+	    <td>{{ movie['id'] }}</td>
+	    <td><a href="http://localhost:8080/movies/stream/{{ movie['id'] }}">{{ movie['name'] }}</a></td>
+	    <td>{{ movie['genre'] }}</td>
+	    <td>{{ movie['rating'] }}</td>
+	    <td>{{ movie['release_year'] }}</td>
+	    <td>{{ movie['description'] }}</td>
+	  </tr>
+	</table> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</body>
+</html>

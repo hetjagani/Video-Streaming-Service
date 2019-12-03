@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Streaming - Home</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+	<h1>List Of Movies</h1>
+	<div class="container">
+    	<div class=" d-flex flex-row flex-wrap mb-3">
+    		{% for movie in movies %}
+	      	<div class="card" style="width: 12rem;">
+			  <div class="card-body">
+			    <h3 class="card-title"><i>{{ movie['name'] }}</i></h3>
+			    <p class="card-text">Rating: {{ movie['rating'] }} <i class="fa fa-star"></i></p>
+			    <button class="btn btn-info"><a href="{{ url_for('movie_detail', id=movie['id']) }}">Get Details</a></button>
+		      </div>
+			</div>
+	      	{% endfor %}
+    	</div>
+    </div>
+
+	<!-- <table id="table" style="width:100%">
+	  <tr>
+	    <th>Movie ID</th>
+	    <th>Name</th>
+	    <th>Genre</th>
+	    <th>Rating</th>
+	    <th>Release Year</th>
+	    <th colspan="1">Description</th>
+	  </tr>
+
+	  {% for movie in movies %}
+	  <tr>
+	    <td>{{ movie['id'] }}</td>
+	    <td><a href="http://localhost:8080/movies/stream/{{ movie['id'] }}">{{ movie['name'] }}</a></td>
+	    <td>{{ movie['genre'] }}</td>
+	    <td>{{ movie['rating'] }}</td>
+	    <td>{{ movie['release_year'] }}</td>
+	    <td>{{ movie['description'] }}</td>
+	  </tr>
+	  {% endfor %}
+	</table> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</body>
+</html>

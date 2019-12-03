@@ -1,0 +1,57 @@
+body {
+  padding-top: 20px;
+  background: rgba(67, 93, 171);
+  text-align: center;
+  color: white;
+}
+
+h1, a {
+	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s;
+  transition: transform 1s;
+  margin: 30px;
+  background: rgba(147, 67, 171, 0.5);
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.05);
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+
+#movie-detail {
+	background: rgba(147, 67, 171, 0.5);
+	padding: 20px;
+  max-width: 50%;
+  margin: 30px auto 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+
+#movie-detail p:hover {
+  font-weight: bold;
+}
