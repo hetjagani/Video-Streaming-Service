@@ -6,8 +6,8 @@ from shutil import copyfile, rmtree
 import sys
 import time
 
-monitor_dir_path = "/home/hp/Study/College/Sem 7/CC/Project/monitor/"
-shared_vol_path = "/home/hp/Study/College/Sem 7/CC/Project/shared_vol"
+monitor_dir_path = "/home/ubuntu-1/Cloud_project/monitor"
+shared_vol_path = "/home/ubuntu-1/dist"
 db_path = os.path.join(shared_vol_path, "databases")
 
 while True:
@@ -46,12 +46,12 @@ while True:
             print(e)
             continue
         if check == 2:
-            fpath = "media/" + movie_dict["name"].replace(" ", "_") + "." + movie_dict["format"]
+            fpath = "/media/" + movie_dict["name"].replace(" ", "_") + "." + movie_dict["format"]
             movie_dict["filepath"] = fpath
-            dest_vid_path = os.path.join(shared_vol_path, fpath)
+            dest_vid_path = shared_vol_path + fpath
             print(orig_vid_path)
             print(dest_vid_path)
-            #copyfile(orig_vid_path, dest_vid_path)
+            copyfile(orig_vid_path, dest_vid_path)
             for key, val in movie_dict.items():
                 print(key, val, type(val))
             try:
@@ -72,8 +72,8 @@ while True:
                     movie_dict["format"],
                     movie_dict["filesize"])
                 print(query)
-                #cur.execute(query)
-                #con.commit()
+                cur.execute(query)
+                con.commit()
             except Exception as e:
                 print("Exception occured while performing operations in db : ")
                 print(e)
@@ -91,4 +91,4 @@ while True:
         except Exception as e:
             print("Exception occured while deleting contents of monitoring directory : ")
             print(e)
-    time.sleep(5*60)
+    time.sleep(10)
