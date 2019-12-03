@@ -90,12 +90,11 @@ public class MovieService {
             while (rs.next()) {
             	if(rs.getInt("id")==movieId) {
             		ext = rs.getString("format");
-            		name = rs.getString("name");
+            		name = rs.getString("name").replaceAll("\\s+","_");
             		break;
             	}
             }
-			
-			UrlResource video = new UrlResource("file:/home/hp/Videos/" + name + "." + ext);
+			UrlResource video = new UrlResource("file:/home/server1/dist/media/" + name + "." + ext);
 			long videoLen = video.contentLength();
 			List<HttpRange> range = headers.getRange();
 			System.out.println(range);
@@ -110,6 +109,7 @@ public class MovieService {
 				long rangeLength = (Long.valueOf(1048576)<videoLen)?1048576:videoLen;
 				region = new ResourceRegion(video, 0, rangeLength);
 			}
+			System.out.println(region);
 			return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
 					.header("keep-alive", "true")
 					.contentType(MediaTypeFactory
@@ -121,13 +121,15 @@ public class MovieService {
 			e.printStackTrace();
 		}
 		return null;	
+//		return ResponseEntity.status(HttpStatus.MOVED_PERMANENTLY)
+//				.header("Location", "http://10.20.131.199:8080/movies/stream/2").body(null);
 	}
 	
 	public static ResultSet connectToDB() {
-		String url = "jdbc:sqlite:/home/hp/Study/College/Sem 7/CC/Project/shared_vol/databases/project.db	"; 
+		String url = "jdbc:sqlite:/home/server1/dist/databases/project"; 
 		try {
 			Connection conn = DriverManager.getConnection(url);    
-            Statement stmt = conn.createStatement();  
+            Statement stmt = conn.createStatement();
             String sqlQuery = "SELECT * FROM movies";
             ResultSet rs = stmt.executeQuery(sqlQuery);
             return rs;
